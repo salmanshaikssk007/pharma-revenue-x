@@ -1,32 +1,35 @@
-🧬 ModelN-Inspired Cloud ETL Pipeline
+```markdown
+# 🧬 PharmaRevenueX – ModelN-Inspired Cloud ETL Pipeline
 
-A deployable, interview-ready data engineering project simulating a pharmaceutical pricing workflow — inspired by Bayer’s use of Model N, Snowflake, and AWS Glue. Built to demonstrate key cloud engineering skills across AWS, Snowflake, PySpark, Lambda, Step Functions, Terraform, and CI/CD.
+A deployable, interview-ready **cloud data engineering project** simulating a pharmaceutical rebate workflow — inspired by Bayer’s use of Model N, **Snowflake**, and **AWS Glue**.
 
-⸻
+> 🔧 Built to demonstrate core skills in **ETL, orchestration, CI/CD, and IaC**, aligned with the Bayer Cloud Engineer role.
 
-🎯 Purpose
+---
 
-This project simulates a real-world ETL pipeline for pharmaceutical rebate compliance using:
-	•	AWS Glue (PySpark) for data validation
-	•	Snowflake for clean warehousing
-	•	Lambda for event-based alerts
-	•	Step Functions for orchestration
-	•	Terraform for infrastructure as code
-	•	GitHub Actions for CI/CD
+## 🎯 Purpose
 
-✅ Built to align with Bayer’s Cloud Engineer role.
+Simulates a real-world ETL pipeline for **pharmaceutical rebate compliance** using:
 
-⸻
+- 🧪 **AWS Glue** (PySpark) – Rebate validation and transformation  
+- 🏢 **Snowflake** – Warehousing of valid transactions  
+- 🪝 **Lambda** – Alert triggers on rebate violations  
+- 🔁 **Step Functions** – Orchestrating Glue and Lambda  
+- ⚙️ **Terraform** – Infrastructure as Code  
+- 🚀 **GitHub Actions** – CI/CD automation  
 
-🗂 Project Structure
+---
 
+## 🗂 Project Structure
+
+```
 pharma-revenue-x/
 ├── glue/
 │   └── modeln_etl_job.py          # PySpark ETL validation logic
 ├── lambda/
-│   └── alert_lambda.py           # Sends alerts if rebate violations detected
+│   └── alert_lambda.py            # Sends alerts if rebate violations detected
 ├── data/
-│   └── modeln_sample.json        # Simulated Model N input
+│   └── modeln_sample.json         # Simulated Model N input
 ├── terraform/
 │   ├── main.tf
 │   ├── glue.tf
@@ -35,15 +38,16 @@ pharma-revenue-x/
 │   └── iam.tf
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml            # GitHub Actions CI/CD
-├── architecture.drawio           # Architecture Diagram
+│       └── deploy.yml             # GitHub Actions CI/CD
+├── architecture.drawio            # Architecture Diagram
 └── README.md
+```
 
+---
 
-⸻
+## ⚙️ Flow Overview
 
-⚙️ Flow Overview
-
+```mermaid
 graph TD
   A[S3 Raw JSON] --> B[Glue PySpark Job]
   B --> C[Validate rebate rules]
@@ -51,12 +55,13 @@ graph TD
   C -->|violations| E[S3 Alerts Bucket]
   E --> F[Lambda Function]
   F --> G[SNS Alert or Email]
+```
 
+---
 
-⸻
+## 📥 Sample Input: `modeln_sample.json`
 
-📥 Sample Input (modeln_sample.json)
-
+```json
 [
   {
     "transaction_id": "T123",
@@ -67,56 +72,64 @@ graph TD
     "transaction_date": "2025-07-20"
   }
 ]
+```
 
+---
 
-⸻
+## 🔧 Tech Stack
 
-🔧 Tech Stack
-	•	AWS Glue – PySpark-based data validation
-	•	Snowflake – Cloud warehouse, optimized tables
-	•	AWS Lambda – Trigger alerts
-	•	AWS Step Functions – Orchestrates Glue + Lambda
-	•	Terraform – Infrastructure as Code
-	•	GitHub Actions – CI/CD for provisioning + updates
-	•	IAM + S3 + KMS – Security best practices
+| Category         | Tool/Service               |
+|------------------|----------------------------|
+| ETL Engine       | AWS Glue (PySpark)         |
+| Data Warehouse   | Snowflake                  |
+| Alerts           | AWS Lambda + SNS           |
+| Orchestration    | AWS Step Functions         |
+| IaC              | Terraform                  |
+| CI/CD            | GitHub Actions             |
+| Security         | IAM, S3, KMS (optional)    |
 
-⸻
+---
 
-✅ What It Demonstrates
+## ✅ What It Demonstrates
 
-Capability	Demo Element
-Serverless ETL	Glue Job with PySpark
-Data Quality Enforcement	Rebate rule validation
-Lakehouse Pipeline	S3 → Snowflake via Glue
-Event-driven Design	Lambda triggers on violations
-Workflow Orchestration	Step Functions
-CI/CD Automation	GitHub Actions + Terraform
-Security Best Practices	IAM roles + KMS (if added)
+| Capability              | Demo Element                      |
+|-------------------------|-----------------------------------|
+| Serverless ETL          | Glue Job with PySpark             |
+| Data Quality Enforcement| Rebate rule validation            |
+| Lakehouse Pipeline      | S3 → Snowflake via Glue           |
+| Event-driven Design     | Lambda triggers on violations     |
+| Workflow Orchestration  | Step Functions                    |
+| CI/CD Automation        | GitHub Actions + Terraform        |
+| Security Best Practices | IAM roles + KMS (optional)        |
 
+---
 
-⸻
+## 📈 Use Cases
 
-📈 Use Cases
-	•	Interview demo for Cloud/Data Engineer roles
-	•	Internal PoC for pharma pricing workflows
-	•	Extendable pipeline for AuroGenix Cloud Agents
+- ✅ Interview demo for Cloud/Data Engineer roles  
+- 🧪 PoC for pharma rebate workflows  
+- 🌩️ Extendable architecture for **AuroGenix cloud agents**
 
-⸻
+---
 
-📌 Next Steps
-	•	Deploy Terraform infra to AWS
-	•	Run ETL job via Step Function
-	•	Visualize Snowflake output with Power BI / Tableau / Flask UI
-	•	Extend: add stored procedures, Snowflake alerts
+## 📌 Next Steps
 
-⸻
+- [ ] Deploy Terraform infra to AWS  
+- [ ] Run ETL job via Step Function  
+- [ ] Visualize Snowflake output (Power BI, Tableau, or Flask UI)  
+- [ ] Extend: add Snowflake alerts or stored procedures  
 
-🧠 Author
+---
 
-Built by Salman Shaik for Bayer Cloud Engineer interview readiness and future AuroGenix infra foundations.
+## 🧠 Author
 
-⸻
+**Salman Shaik**  
+Built for **Bayer Cloud Engineer interview** and to serve as a launchpad for future **AuroGenix infrastructure**.
 
-🛡 Disclaimer
+---
 
-This is a simulated project for educational and professional demonstration purposes only. No proprietary data or logic from Bayer or Model N is used.
+## 🛡️ Disclaimer
+
+This is a simulated project for educational and demonstration purposes only.  
+No proprietary data, models, or business logic from Bayer or Model N is used.
+```
