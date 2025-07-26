@@ -22,7 +22,8 @@ Simulates a real-world ETL pipeline for **pharmaceutical rebate compliance** usi
 
 ## 🗂 Project Structure
 
-```
+<pre lang="markdown"><code>
+```text
 pharma-revenue-x/
 ├── glue/
 │   └── modeln_etl_job.py          # PySpark ETL validation logic
@@ -42,6 +43,8 @@ pharma-revenue-x/
 ├── architecture.drawio            # Architecture Diagram
 └── README.md
 ```
+</code></pre>
+
 
 ---
 
